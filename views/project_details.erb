@@ -1,4 +1,16 @@
 <h1><%= @project.title %></h1>
 
+<!-- <form action="/project/:id" method="post">
+  <div class="form-group">
+    <label for="name">Volunteer name</label>
+    <input class="form-control" type="text" name="name">
+    <button type="submit" class="btn">Add volunteer</button>
+  </div>
+</form> -->
+
+<% @volunteers.each do |volunteer| %>
+  <h3><%= volunteer.name %></a></h3>
+<% end %>
+
 <a href="/edit">Edit Project</a>
 <a href="/">Back to project list</a>

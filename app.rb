@@ -23,9 +23,18 @@ end
 
 get("/project/:id") do
   @project = Project.find(params[:id])
+  @volunteers = @project.volunteers()
   erb(:project_details)
 end
 
 get("/edit") do
   erb(:edit)
 end
+
+# post("/project/:id") do
+#   @project = Project.find(params[:id])
+#   name = params.fetch("name")
+#   new_volunteer = Volunteer.new({:name => name, :project_id => @project, :id => nil})
+#   new_volunteer.save
+#   redirect "/project/:id"
+# end
