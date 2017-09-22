@@ -26,11 +26,6 @@ get("/project/:id") do
   erb(:project_details)
 end
 
-get("/edit_project") do
-  erb(:edit_project)
-end
-
-post("/project/:id") do
-  @project = Project.find(params[:id])
-  erb(:project_details)
+get("/edit") do
+  erb(:edit)
 end

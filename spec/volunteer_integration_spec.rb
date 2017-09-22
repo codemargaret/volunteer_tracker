@@ -17,8 +17,6 @@ describe 'the project creation path', {:type => :feature} do
   end
 end
 
-# A user should be able to click on a project to see its detail. The detail page includes a form where the project can be updated. When the form is submitted, the user can be directed to either the home page or that project's detail page. (The test will work for either.)
-
 describe 'the project update path', {:type => :feature} do
   it 'allows a user to change the name of the project' do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -41,7 +39,7 @@ end
 #     id = test_project.id
 #     visit "/projects/#{id}/edit"
 #     click_button('Delete Project')
-#     vist '/'
+#     visit '/'
 #     expect(page).not_to have_content("Teaching Kids to Code")
 #   end
 # end
