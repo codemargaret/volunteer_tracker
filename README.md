@@ -14,9 +14,9 @@ _To access this application, first clone this repository. Then create a copy of 
 
 * _Open Terminal_
 * _Run these commands:_
-* _createdb [DATABASE NAME]_
-* _psql [DATABASE_NAME] < database_backup.sql_
-* _createdb -T [DATABASE NAME] [TEST DATABASE NAME]_
+* _createdb volunteer_tracker_
+* _psql volunteer_tracker < database_backup.sql_
+* _createdb -T volunteer_tracker volunteer_tracker_test_
 
 ## Known Bugs
 
