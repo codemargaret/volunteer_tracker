@@ -35,4 +35,4 @@ class Volunteer
     project_id = found_volunteers.first().fetch("project_id").to_i
     Volunteer.new({:name => name, :project_id => project_id, :id => id})
   end
-end #Volunteer class
+end 
