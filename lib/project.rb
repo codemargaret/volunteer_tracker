@@ -9,7 +9,7 @@ class Project
 
   def save
     saved_project = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
-    @id = saved_project.first().fetch("id").to_i()
+    @id = saved_project.first().fetch("id").to_i
   end
 
   def ==(another_project)
