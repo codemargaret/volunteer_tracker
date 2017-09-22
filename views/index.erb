@@ -1,0 +1,20 @@
+<h1>Volunteer Tracker</h1>
+
+<h3>Create a new project:</h3>
+
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="title">Project title</label>
+    <input class="form-control" type="text" name="title" id="title">
+  </div>
+  <button type="submit" class="btn">Create Project</button>
+</form>
+
+<div>
+  <h3>All Projects</h3>
+  <p>Click a project to see volunteers</p>
+
+  <% @project_list.each do |project| %>
+    <h3><%= project.title %></h3>
+  <% end %>
+</div>

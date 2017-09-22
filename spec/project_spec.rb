@@ -91,4 +91,16 @@ describe Project do
       expect(Project.all).to eq []
     end
   end
-end
+
+  describe '#add_project' do
+    it 'adds projects to the list on the homepage' do
+      project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project1.save
+      project1.add_project
+      project2 = Project.new({:title => 'Helping Senior Citizens with Technology', :id => nil})
+      project2.save
+      project2.add_project
+      expect(Project.all()).to(eq([project1,project2]))
+    end
+  end
+end #Project class

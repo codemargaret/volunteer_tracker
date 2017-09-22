@@ -1,4 +1,6 @@
 class Project
+  @@project_list = []
+
   attr_accessor :title
   attr_reader :id
 
@@ -53,5 +55,9 @@ class Project
 
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{self.id()};")
+  end
+
+  def add_project
+    @@project_list.push(self)
   end
 end #Project class
