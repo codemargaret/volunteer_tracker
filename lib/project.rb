@@ -1,7 +1,7 @@
 class Project
   @@project_list = []
 
-  attr_accessor :title
+  attr_accessor :title, :volunteers
   attr_reader :id
 
   def initialize(attributes)
