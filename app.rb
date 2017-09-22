@@ -20,3 +20,17 @@ post("/") do
   new_project.add_project
   redirect "/"
 end
+
+get("/project/:id") do
+  @project = Project.find(params[:id])
+  erb(:project_details)
+end
+
+get("/edit_project") do
+  erb(:edit_project)
+end
+
+post("/project/:id") do
+  @project = Project.find(params[:id])
+  erb(:project_details)
+end
