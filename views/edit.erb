@@ -1,14 +1,16 @@
 <h3>Change your project's title</h3>
 
-<form action="/" method="post">
+<form action="/projects/<%= @project.id %>/edit" method="post">
   <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
     <label for="title">New project title</label>
     <input class="form-control" type="text" name="title">
   </div>
   <button type="submit" class="btn">Update Project</button>
 </form>
 
-<form action="/delete" method="get">
+<form action="/projects/<%= @project.id %>/edit" method="post">
+  <input name="_method" type="hidden" value="delete">
   <button type="submit" class="btn">Delete Project</button>
 </form>
 

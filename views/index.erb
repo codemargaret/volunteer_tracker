@@ -14,7 +14,7 @@
   <h3>All Projects</h3>
   <p>Click a project to see volunteers</p>
 
-  <% @project_list.each do |project| %>
-    <h3><a href="/project/<%= project.id %>"><%= project.title %></a></h3>
+  <% @projects.each do |project| %>
+    <h3><a href="/projects/<%= project.id %>"><%= project.title %></a></h3>
   <% end %>
 </div>
