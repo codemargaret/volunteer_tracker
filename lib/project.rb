@@ -9,7 +9,7 @@ class Project
 
   def save
     saved_project = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
-    @id = saved_project.first().fetch("id").to_i
+    @id = saved_project.first.fetch("id").to_i
   end
 
   def ==(another_project)
@@ -29,7 +29,7 @@ class Project
 
   def self.find(id)
     found_projects = DB.exec("SELECT * FROM projects WHERE id = #{id};")
-    title = found_projects.first().fetch("title")
+    title = found_projects.first.fetch("title")
     Project.new({:title => title, :id => id})
   end
 

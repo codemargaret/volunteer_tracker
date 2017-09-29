@@ -30,9 +30,14 @@ class Volunteer
   end
 
   def self.find(id)
-    found_volunteers = DB.exec("SELECT * FROM volunteers WHERE id = '#{id}';")
-    name = found_volunteers.first().fetch("name")
+    found_volunteers = DB.exec("SELECT * FROM volunteers WHERE id = #{id};")
+    name = found_volunteers.first.fetch("name")
     project_id = found_volunteers.first().fetch("project_id").to_i
     Volunteer.new({:name => name, :project_id => project_id, :id => id})
+  end
+
+  def update(attributes)
+    @name = attributes.fetch(:name, @name)
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{self.id()};")
   end
 end# Volunteer class

@@ -6,12 +6,12 @@
     <label for="title">New project title</label>
     <input class="form-control" type="text" name="title">
   </div>
-  <button type="submit" class="btn">Update Project</button>
+  <button type="submit" class="btn btn-outline-primary">Update Project</button>
 </form>
 
 <form action="/projects/<%= @project.id %>/edit" method="post">
   <input name="_method" type="hidden" value="delete">
-  <button type="submit" class="btn">Delete Project</button>
+  <button type="submit" class="btn btn-outline-primary">Delete Project</button>
 </form>
 
 <a href="/">Back to project list</a>

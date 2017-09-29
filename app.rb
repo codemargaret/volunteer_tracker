@@ -37,6 +37,14 @@ get("/projects/:id/edit") do
   erb(:edit)
 end
 
+post "/projects/:id/volunteers" do
+  @project = Project.find(params[:id])
+  name = params["name"]
+  volunteer = Volunteer.new(:project_id => @project.id, :name => name)
+  volunteer.save
+  redirect "/projects/#{@project.id}"
+end
+
 #Change the name of a project
 patch("/projects/:id/edit") do
   project = Project.find(params[:id])
@@ -46,8 +54,22 @@ patch("/projects/:id/edit") do
 end
 
 #Delete a project
-delete("/projects/:id/edit") do
+delete "/projects/:id/edit" do
   project = Project.find(params[:id])
   project.delete
   redirect "/"
 end
+
+#See volunteer details
+get "/volunteer/:id" do
+  @volunteer = Volunteer.find(params["id"])
+  erb :volunteer_details
+end
+
+#Change the name of a volunteer
+# patch("/volunteer/:id/edit") do
+#   name = params["name"]
+#   @volunteer = Volunteer.find(params["id"])
+#   @volunteer.update({:name => name})
+#   redirect "/volunteer/:id"
+# end
