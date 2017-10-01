@@ -38,6 +38,7 @@ get("/projects/:id/edit") do
 end
 
 post "/projects/:id/volunteers" do
+  project_id = params[:id]
   @project = Project.find(params[:id])
   name = params["name"]
   volunteer = Volunteer.new(:project_id => @project.id, :name => name)
@@ -62,14 +63,14 @@ end
 
 #See volunteer details
 get "/volunteer/:id" do
-  @volunteer = Volunteer.find(params["id"])
+  @volunteer = Volunteer.find(params[:id])
   erb :volunteer_details
 end
 
 #Change the name of a volunteer
-# patch("/volunteer/:id/edit") do
-#   name = params["name"]
-#   @volunteer = Volunteer.find(params["id"])
-#   @volunteer.update({:name => name})
-#   redirect "/volunteer/:id"
-# end
+patch("/volunteer/:id/edit") do
+  name = params["name"]
+  @volunteer = Volunteer.find(params["id"].to_i)
+  @volunteer.update({:name => name})
+  redirect "/volunteer/#{@volunteer.id}"
+end
